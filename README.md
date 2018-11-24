@@ -1,6 +1,6 @@
 # kerberos
 
-##Trabalho 2 de ECOE10 - Tópicos Especiais em Segurança da Informação 
+## Trabalho 2 de ECOE10 - Tópicos Especiais em Segurança da Informação 
 
 Este projeto contempla a segunda nota da disciplina ECOE10. 
 

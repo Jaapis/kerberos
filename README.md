@@ -17,7 +17,7 @@ Os principais elementos deste projeto são a utilização do protocolo de segura
 #### Integrantes do grupo:
 * David dos Anjos Bovolenta  25784   
 * Felipe Caetano Castilho    26904
-* Guilherme M. Brtoletto     30076
+* Guilherme M. Bortoletto    30076
 * Rodrigo Toshiaki Horie     26620
 
 **Prazo para entrega:** 30/11/2018

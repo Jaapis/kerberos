@@ -1,12 +1,18 @@
 package br.edu.unifei.eco;
 
+import com.sun.security.auth.callback.TextCallbackHandler;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.security.PrivilegedAction;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.security.auth.*;
+import javax.security.auth.login.*;
+import javax.security.auth.callback.*;
+import javax.security.auth.kerberos.*;;
 
 /**
  * This class is an implementation of a simple server interface 
@@ -23,6 +29,24 @@ public class Server {
     private DataInputStream inStream   = null;
     private DataOutputStream outStream = null;
     
+    // Kerberos variables
+    LoginContext lc = null;
+    
+    /**
+     * This method initializes everything that has to do with kerberos
+     */
+    public void initKerberos() {
+        try {
+            lc = new LoginContext("test server", new TextCallbackHandler());
+            lc.login();
+        } catch (LoginException ex) {
+            Logger.getLogger(Server.class.getName())
+                  .log(Level.SEVERE, null, ex);
+        }
+        Subject mySubject = lc.getSubject();
+        PrivilegedAction action = /* new ServerAction(); */ null;
+    }
+    
     public Server() {
         init();
     }
@@ -37,13 +61,14 @@ public class Server {
             System.out.println("[ SUCCESS ] Servidor iniciado com sucesso...");
             System.out.println("[ MESSAGE ] Aguardando cliente...");
             client = server.accept();
-            System.out.println("[ SUCCESS ] Conexão estabelecida com o cliente: "
-                             + "\"" + client.getInetAddress() + "\"...");
+            System.out.println("[ SUCCESS ] Conexão estabelecida com o cliente:"
+                             + " \"" + client.getInetAddress() + "\"...");
             password = new String("unifei");
         } catch (IOException ex) {
             Logger.getLogger(Server.class.getName())
                   .log(Level.SEVERE, null, ex);
         }
+        initKerberos();
     }
     
     /**

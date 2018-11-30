@@ -1,14 +1,21 @@
 package br.edu.unifei.eco;
 
+import com.sun.security.auth.callback.TextCallbackHandler;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.security.PrivilegedAction;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.security.auth.*;
+import javax.security.auth.login.*;
+import javax.security.auth.callback.*;
+import javax.security.auth.kerberos.*;
+
 
 /**
  * This class is an implementation of a simple client interface
@@ -25,11 +32,34 @@ public class Client {
     private DataOutputStream outStream  = null;
     private int serverPort              = 0;
     
+    // Kerberos variables
+    private Subject subject             = null;
+    private LoginContext loginContext   = null;
+    
     /**
      * Initializes every variable
      */
     public Client() {
         init();
+    }
+    
+    /**
+     * This method initializes everything that has to do with kerberos
+     */
+    public void initKerberos() {
+        subject = new Subject();
+        try {
+            loginContext = new LoginContext("test server"
+                         , new TextCallbackHandler());
+            loginContext.login();
+        } catch (LoginException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        subject = loginContext.getSubject();
+        PrivilegedAction action = null; // in here should be a new privileged
+                                        // action only principals can do
+        Subject.doAs(subject, action);
+        
     }
     
     /**
@@ -71,6 +101,7 @@ public class Client {
             Logger.getLogger(Client.class.getName())
                   .log(Level.SEVERE, null, ex);
         }
+        initKerberos();
     }
     
     /**

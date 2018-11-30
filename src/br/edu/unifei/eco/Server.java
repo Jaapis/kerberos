@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * This class is an implementation of a simple server interface * 
+ * This class is an implementation of a simple server interface 
  * 
  * @author Guilherme M. Bortoletto <guilherme.mbortoletto@gmail.com>
  * @version 0.1
@@ -88,6 +88,9 @@ public class Server {
         }
     }
     
+    /**
+     * Terminates the server process freeing every resource
+     */
     public void terminate() {
         try {
             outStream.close();
@@ -99,6 +102,10 @@ public class Server {
         }
     }
     
+    /**
+     * Main function for client
+     * @param args arguments from terminal
+     */
     public static void main(String[] args) {
         Server server = new Server();
         server.authenticate();

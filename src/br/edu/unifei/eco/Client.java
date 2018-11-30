@@ -11,8 +11,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * This class is an implementation of a simple client interface
+ * 
  * @author Guilherme M. Bortoletto <guilherme.mbortoletto@gmail.com>
+ * @version 0.1
  */
 public class Client {
     
@@ -23,6 +25,9 @@ public class Client {
     private DataOutputStream outStream  = null;
     private int serverPort              = 0;
     
+    /**
+     * Initializes every variable
+     */
     public Client() {
         init();
     }
@@ -68,7 +73,12 @@ public class Client {
         }
     }
     
+    /**
+     * Check for password handshake between client and server
+     */
     public void authenticate() {
+        
+        // Gets password from user input and tries to match the server's one
         try {
             System.out.print("[ PROMPT ] Digite a senha: ");
             outStream.writeUTF(scan.nextLine());
@@ -83,6 +93,9 @@ public class Client {
         }
     }
     
+    /**
+     * Terminates the client process freeing every resource
+     */
     public void terminate() {
         try {
             outStream.close();
@@ -94,6 +107,10 @@ public class Client {
         scan.close();
     }
     
+    /**
+     * Main function for client
+     * @param args arguments from terminal
+     */
     public static void main(String[] args) {
         Client client = new Client();
         client.authenticate();

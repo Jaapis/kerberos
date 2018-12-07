@@ -1,0 +1,15 @@
+# /etc/hosts
+
+127.0.0.1	localhost
+
+
+192.168.76.134	monarch.teste.com monarch 
+192.168.76.134  krb.teste.com krb 
+192.168.76.134 ubuntu.teste.com ubuntu
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters

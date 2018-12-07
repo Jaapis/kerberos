@@ -20,4 +20,4 @@ Os principais elementos deste projeto são a utilização do protocolo de segura
 * Guilherme M. Brtoletto     30076
 * Rodrigo Toshiaki Horie     26620
 
-**Prazo para entrega:** 30/11/2018
+**Prazo para entrega:** 10/12/2018

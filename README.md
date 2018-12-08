@@ -229,3 +229,7 @@ ssh krb.teste.com
 ```
 
 E se tudo está correto, a autenticação deve ocorrer com successo.
+
+## 5. Funcionamento
+
+Aqui está um vídoe demonstrando a funcionalidade do projeto: [Youtube](https://youtu.be/4fjoKbaJBCs)

@@ -233,3 +233,20 @@ E se tudo está correto, a autenticação deve ocorrer com successo.
 ## 5. Funcionamento
 
 Aqui está um vídoe demonstrando a funcionalidade do projeto: [Youtube](https://youtu.be/4fjoKbaJBCs)
+
+# Nota 
+
+Critérios 
+1. README [3]
+  * Detalhamento - 1
+  * Informações do caso de uso escolhido - 0.7
+  * Informações da configuração - 1
+2. Commits [3] - 3 (Excelente, os commits estão muito bem organizados com participação de mais de uma pessoa)
+3. .gitignore [1] - 0
+4. Código [3] - 2.8
+5. Pontos extras
+  * Extras (POC, GIF, Video, esforço) - 1
+  * Commits - 0.3
+
+Total = 9.8
+(Não é necessariamente a nota final)
